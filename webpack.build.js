@@ -10,7 +10,7 @@ const path = require('path');
 module.exports = {
   entry: {
     'styles.css':'./src/styles.scss',
-    'quest.js':["babel-polyfill","./src/quest.js"]
+    'testquest.js':["babel-polyfill","./src/testquest.js"]
   },
   output: {
     filename: '[name]',

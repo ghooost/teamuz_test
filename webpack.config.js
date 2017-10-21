@@ -9,14 +9,20 @@ const path = require('path');
 module.exports = {
   entry: {
     'styles.css':'./src/styles.scss',
-    'quest.js':"./src/quest.js"
+    'testquest.js':"./src/testquest.js"
   },
   output: {
     filename: '[name]',
     path: path.resolve(__dirname, 'dst')
   },
   module: {
-      rules: [{
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: 'babel-loader'
+        },
+        {
           test: /\.scss$/,
           use: extractSass.extract({
               use: [{
