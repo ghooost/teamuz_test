@@ -5,8 +5,18 @@
 <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<p>Это текст</p>
-<div data-quest="testquest" class="quest"></div>
+<h2>class Quest</h2>
+<p>Единственный верный вариант ответа на каждый вопрос,
+  по результатам выставляется оценка и выносится вердикт</p>
+<div data-quest="quest" class="quest"></div>
+<h2>class QuestGuess</h2>
+<p>У каждого вердикта есть набор ответов на вопросы, выбирается вердикт с
+наиболее совпадающими ответами</p>
+<div data-quest="questguess" class="quest"></div>
+<h2>class QuestMdz</h2>
+<p>Похож на Quest, но после каждого ответа показывается правильный вариант и статистика ответов.
+Это ближе всего к тому, что сделано на Медузе</p>
+<div data-quest="questmdz" class="quest"></div>
 <script>
 </script>
 <script src="./testquest.js"></script>
