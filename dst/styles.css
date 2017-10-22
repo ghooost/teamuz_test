@@ -29,6 +29,46 @@
 .quest .page .answer:hover {
   background-color: #eeeeee; }
 
+.quest .page .vote {
+  position: relative;
+  display: block;
+  display: block;
+  margin: 1em 0;
+  padding: 10px;
+  opacity: 0.6; }
+
+.quest .page .vote .note {
+  display: block;
+  position: relative;
+  margin: 0 80px 0 0; }
+
+.quest .page .vote .stat {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px; }
+
+.quest .page .vote .text {
+  display: block;
+  font-size: 14px;
+  margin-top: 0.5em; }
+
+.quest .page .vote.invalid .note {
+  color: #aa0000; }
+
+.quest .page .vote.invalid .stat {
+  color: #aa0000; }
+
+.quest .page .vote.valid .note {
+  color: #00aa00; }
+
+.quest .page .vote.valid .stat {
+  color: #00aa00; }
+
+.quest .page .vote.active {
+  opacity: 1; }
+
 .quest .page .buttons {
   display: block;
   margin-top: 1em;

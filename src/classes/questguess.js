@@ -24,9 +24,6 @@ export default class QuestGuess extends Quest {
       return ret;
     });
 
-    console.log(results);
-
-
     if(!results.length){
       throw new Error("Похоже, нет подходящего варианта");
     } else {

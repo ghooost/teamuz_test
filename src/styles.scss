@@ -36,6 +36,58 @@ $mainColor: #000022;
     .answer:hover {
       background-color:#eeeeee;
     }
+
+    .vote {
+      position:relative;
+      display:block;
+      display:block;
+      margin:1em 0;
+      padding:10px;
+      opacity:0.6;
+    }
+
+    .vote {
+        .note {
+          display:block;
+          position:relative;
+          margin:0 80px 0 0;
+        }
+        .stat {
+          display:block;
+          position:absolute;
+          top:0;
+          right:0;
+          padding:10px;
+        }
+        .text {
+          display:block;
+          font-size:14px;
+          margin-top:0.5em;
+        }
+    }
+
+    .vote.invalid {
+      .note {
+        color:#aa0000;
+      }
+      .stat{
+        color:#aa0000;
+      }
+    }
+
+    .vote.valid {
+      .note {
+        color:#00aa00;
+      }
+      .stat{
+        color:#00aa00;
+      }
+    }
+
+    .vote.active {
+      opacity:1;
+    }
+
     .buttons {
       display:block;
       margin-top:1em;

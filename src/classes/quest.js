@@ -21,7 +21,6 @@ export default class Quest{
   }
 
   apply(node,data){
-    console.log("apply!",node,data);
     this.state.node=node;
     this.state.data=data;
     this.doAction(this.stages.INIT);
