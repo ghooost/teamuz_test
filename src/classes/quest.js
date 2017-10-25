@@ -90,9 +90,9 @@ export default class Quest{
 
   drawInit(){
     let data=this.state.data;
-    let page=this.mk({cls:"page",node:this.state.node});
-    this.mk({cls:"title init",html:data.title,node:page});
-    this.mk({cls:"subtitle",html:data.subtitle,node:page});
+    let page=this.mk({cls:"page intro",node:this.state.node});
+    this.mk({cls:"title",html:data.title,node:page,tag:data.titleTag?data.titleTag:'div'});
+    if(data.subtitle) this.mk({cls:"subtitle",html:data.subtitle,node:page});
     this.mk({cls:"note",html:data.note,node:page});
     let buttons=this.mk({cls:"buttons",node:page});
     this.mk({tag:"a",cls:"button",html:data.start,node:buttons})
@@ -104,10 +104,11 @@ export default class Quest{
     let questId=this.state.answers.length;
     let quest=data.quests[questId];
     let page=this.mk({cls:"page",node:this.state.node});
-    this.mk({cls:"title",html:data.title,node:page});
+    this.mk({cls:"title",html:data.title,node:page,tag:data.titleTag?data.titleTag:'div'});
     this.mk({cls:"note",html:quest.note,node:page});
+    let answers=this.mk({cls:"answers",node:page});
     quest.answers.forEach((item,index)=>{
-      this.mk({tag:"a",cls:"answer",html:item.note,node:page})
+      this.mk({tag:"a",cls:"answer",html:item.note,node:answers})
       .addEventListener("click",this.doAction.bind(this,this.stages.QUEST,{
         questId:questId,
         answerId:index
@@ -117,9 +118,9 @@ export default class Quest{
 
   drawResults(){
     let data=this.state.data;
-    let page=this.mk({cls:"page",node:this.state.node});
+    let page=this.mk({cls:"page result",node:this.state.node});
     this.mk({cls:"title",html:data.title,node:page});
-    this.mk({cls:"subtitle result",html:this.state.result.count,node:page});
+    this.mk({cls:"subtitle",html:this.state.result.count,node:page});
     this.mk({cls:"note",html:this.state.result.note,node:page});
     let buttons=this.mk({cls:"buttons",node:page});
     this.mk({tag:"a",cls:"button",html:data.restart,node:buttons})

@@ -6,6 +6,7 @@
   "start":"Начать тест",
   "continue":"Далее",
   "restart":"Пройти тест еще раз",
+  "remoteStatistic":"http://ghost.aesthetic.ru/quest?id=testquestmdz",
   "quests":[
     {
       "note":"Для начала разберемся с величинами, которыми астрофизики оперируют в своей работе. Что такое световой год?",

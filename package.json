@@ -10,7 +10,12 @@
   },
   "babel": {
     "presets": [
-      "env"
+      ["env",
+      {
+        "targets": {
+          "browsers": ["> 1%", "ie > 7"]
+        }
+      }]
     ]
   },
   "repository": {

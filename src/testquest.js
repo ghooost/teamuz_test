@@ -4,6 +4,7 @@ let quests=[];
 let Buffer = require('safe-buffer').Buffer;
 let data,nodes;
 
+
 import Quest from './classes/quest.js';
 data=EncLoader.decode(require('json-unreadable-loader!./data/testquest.json'));
 nodes=document.querySelectorAll('[data-quest="quest"]');

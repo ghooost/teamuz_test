@@ -9,7 +9,8 @@ const path = require('path');
 module.exports = {
   entry: {
     'styles.css':'./src/styles.scss',
-    'testquest.js':"./src/testquest.js"
+    'testquest.js':"./src/testquest.js",
+    'crnp.js':["babel-polyfill","./src/crnp.js"]
   },
   output: {
     filename: '[name]',
