@@ -1,108 +1,212 @@
-$mainBgColor: #ffffff;
-$mainColor: #000022;
+$frameColor: #ab7e40;
+$bgColor: #ffffff;
+$textColor: #000000;
+$titleColor:rgb(73, 23, 32);
+
+
 
 .quest {
-  .page {
-    padding:10px;
-    background:#ffffff;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  .frame {
+    width:700px;
+    background:$frameColor;
+    box-sizing:border-box;
+    padding:5px;
+    position:relative;
+    display:inline-block;
+  }
+  .content {
+    padding:40px;
+    background:$bgColor;
   }
   .page {
+    min-height:480px;
+    position:relative;
+    box-sizig:border-box;
+    display:block;
+    font-size:16px;
+    color:$textColor;
+    text-align:center;
 
     .title {
-      font-size:16px;
+      font-size:40px;
       font-weight:bold;
-      margin-bottom:1em;
+      line-height:1.1em;
+      margin:0 0 1em 0;
+      color:$titleColor;
     }
-    .title.init {
-      font-size:20px;
+    .note {
+      line-height:1.4em;
     }
-    .subtitle {
-      font-size:16px;
-      margin-bottom:1em;
-    }
-    .subtitle.result {
+    &.question .note {
       font-size:20px;
       font-weight:bold;
-      text-align:center;
     }
 
-    .answer {
-      display:block;
+    .count {
+      font-size:40px;
+      font-weight:bold;
+      test-align:center;
       margin:1em 0;
-      padding:10px;
-      border:1px solid black;
-      cursor:pointer;
+      line-height:1.4em;
     }
-    .answer:hover {
-      background-color:#eeeeee;
-    }
-
-    .vote {
-      position:relative;
-      display:block;
-      display:block;
-      margin:1em 0;
-      padding:10px;
-      opacity:0.6;
-    }
-
-    .vote {
-        .note {
-          display:block;
-          position:relative;
-          margin:0 80px 0 0;
-        }
-        .stat {
-          display:block;
-          position:absolute;
-          top:0;
-          right:0;
-          padding:10px;
-        }
-        .text {
-          display:block;
-          font-size:14px;
-          margin-top:0.5em;
-        }
-    }
-
-    .vote.invalid {
-      .note {
-        color:#aa0000;
-      }
-      .stat{
-        color:#aa0000;
-      }
-    }
-
-    .vote.valid {
-      .note {
-        color:#00aa00;
-      }
-      .stat{
-        color:#00aa00;
-      }
-    }
-
-    .vote.active {
-      opacity:1;
-    }
-
     .buttons {
       display:block;
-      margin-top:1em;
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
       text-align:center;
+      .button {
+        border-radius:0px;
+        line-height:1em;
+        height:auto;
+        display:inline-block;
+        padding:10px;
+        color:#ffffff;
+        background-color:rgb(41, 23, 32);
+        cursor:pointer;
+      }
+      .button:hover {
+        color:#ffffff;
+        background-color:rgb(73, 23, 32);
+      }
+      .share-label {
+        display:inline-block;
+        font-size:11px;
+      }
+      .share {
+        width:38px;
+        height:38px;
+        display:inline-block;
+        background:center center no-repeat;
+        &.tw {
+          background-image:url();
+        }
+        &.vk {
+          background-image:url();
+        }
+        &.fb {
+          background-image:url();
+        }
+      }
+
     }
-    .button {
-      display:inline-block;
-      padding:10px;
-      color:#ffffff;
-      background-color:#aa0000;
-      cursor:pointer;
-    }
-    .button:hover {
-      color:#ffffff;
-      background-color:#ff0000;
+
+    .answers {
+      display:block;
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+
+      .answer {
+        display:block;
+        margin:10px 0;
+        padding:10px;
+        border:1px solid black;
+        cursor:pointer;
+      }
+      .answer:hover {
+        background-color:#eeeeee;
+      }
+      .answer:first-child {
+        margin-top:0;
+      }
+      .answer:last-child {
+        margin-bottom:0;
+      }
     }
   }
 }
+//   .page {
+//
+//
+//     .question {
+//       .note {
+//         font-size:20px;
+//         font-weight:bold;
+//       }
+//       .answers {
+//         position:absolute;
+//         left:50px;
+//         right:50px;
+//         bottom:50px;
+//       }
+//     }
+//
+//
+//     .vote {
+//       position:relative;
+//       display:block;
+//       margin:1em 0;
+//       padding:10px;
+//       opacity:0.6;
+//       .note {
+//         display:block;
+//         position:relative;
+//         margin:0 80px 0 0;
+//       }
+//       .stat {
+//         display:block;
+//         position:absolute;
+//         top:0;
+//         right:0;
+//         padding:10px;
+//       }
+//       .text {
+//         display:block;
+//         font-size:14px;
+//         margin-top:0.5em;
+//       }
+//       &.invalid {
+//         .note {
+//           color:#aa0000;
+//         }
+//         .stat{
+//           color:#aa0000;
+//         }
+//       }
+//       &.valid {
+//         .note {
+//           color:#00aa00;
+//         }
+//         .stat{
+//           color:#00aa00;
+//         }
+//       }
+//       &.active {
+//         opacity:1;
+//       }
+//     }
+//
+//     .shares {
+//       display:block;
+//       margin-top:1em;
+//       text-align:center;
+//
+//     }
+//
+//     .buttons {
+//       display:block;
+//       margin-top:1em;
+//       text-align:center;
+//       .button {
+//         display:inline-block;
+//         padding:10px;
+//         color:#ffffff;
+//         background-color:#aa0000;
+//         cursor:pointer;
+//       }
+//       .button:hover {
+//         color:#ffffff;
+//         background-color:#ff0000;
+//       }
+//     }
+//
+//   }
+// }

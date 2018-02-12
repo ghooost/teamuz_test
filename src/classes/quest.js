@@ -90,7 +90,9 @@ export default class Quest{
 
   drawInit(){
     let data=this.state.data;
-    let page=this.mk({cls:"page intro",node:this.state.node});
+    let frame=this.mk({cls:"frame",node:this.state.node});
+    let content=this.mk({cls:"content",node:frame});
+    let page=this.mk({cls:"page intro",node:content});
     this.mk({cls:"title",html:data.title,node:page,tag:data.titleTag?data.titleTag:'div'});
     if(data.subtitle) this.mk({cls:"subtitle",html:data.subtitle,node:page});
     this.mk({cls:"note",html:data.note,node:page});
@@ -103,7 +105,9 @@ export default class Quest{
     let data=this.state.data;
     let questId=this.state.answers.length;
     let quest=data.quests[questId];
-    let page=this.mk({cls:"page",node:this.state.node});
+    let frame=this.mk({cls:"frame",node:this.state.node});
+    let content=this.mk({cls:"content",node:frame});
+    let page=this.mk({cls:"page question",node:content});
     this.mk({cls:"title",html:data.title,node:page,tag:data.titleTag?data.titleTag:'div'});
     this.mk({cls:"note",html:quest.note,node:page});
     let answers=this.mk({cls:"answers",node:page});
@@ -118,13 +122,51 @@ export default class Quest{
 
   drawResults(){
     let data=this.state.data;
-    let page=this.mk({cls:"page result",node:this.state.node});
+    let frame=this.mk({cls:"frame",node:this.state.node});
+    let content=this.mk({cls:"content",node:frame});
+    let page=this.mk({cls:"page result",node:content});
     this.mk({cls:"title",html:data.title,node:page});
-    this.mk({cls:"subtitle",html:this.state.result.count,node:page});
+    this.mk({cls:"count",html:this.state.result.count,node:page});
     this.mk({cls:"note",html:this.state.result.note,node:page});
+
     let buttons=this.mk({cls:"buttons",node:page});
+
+    if(data.share){
+      let shares=buttons;
+      let url=window.location+'?skey='+this.state.result.share;
+
+      if(data.shareLabel){
+        this.mk({cls:"share-label",node:shares,html:data.shareLabel});
+      };
+
+      let link=this.mk({tag:"a",cls:"fb share",node:shares});
+      link.addEventListener("click",this.share.bind(this,url,'fb'),false);
+
+      link=this.mk({tag:"a",cls:"tw share",node:shares});
+      link.addEventListener("click",this.share.bind(this,url,'tw'),false);
+
+      link=this.mk({tag:"a",cls:"vk share",node:shares});
+      link.addEventListener("click",this.share.bind(this,url+"&vk=1",'vk'),false);
+    }
+
     this.mk({tag:"a",cls:"button",html:data.restart,node:buttons})
     .addEventListener("click",this.doAction.bind(this,this.stages.INIT),false);
+  }
+
+  share(url,service){
+    switch(service){
+      case 'fb':
+        url='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+      break;
+      case 'tw':
+        url='https://twitter.com/share?url='+encodeURIComponent(url);
+      break;
+      case 'vk':
+        url='https://vk.com/share.php?url='+encodeURIComponent(url);
+      break;
+    }
+    let win=window.open(url,'sharewindow','width=600,height=500,status=0');
+    win.focus();
   }
 
   drawError(){
